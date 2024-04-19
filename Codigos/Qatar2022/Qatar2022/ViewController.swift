@@ -27,6 +27,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     let Conmebol = ["Brasil","Argentina","Ecuador","Uruguay"]
     let Europeos = ["Qatar","Belgica","Francia","Inglaterra","España","Portugal","Dinamarca","Paises Bajos","Alemania","Suiza","Croacia","Iran","Serbia","Polonia","Senegal","Gales"]
     var contador = 0
+    var equipoSeleccionado = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,6 +50,11 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     //Indicar el contenido de cada fila
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return Equipos[row]
+    }
+    
+    //Obtener valor seleccionado
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        equipoSeleccionado = Equipos[row]
     }
     
     //Mostrar Alerta
@@ -78,13 +84,17 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     
     @IBAction func btnSorteo(_ sender: UIButton) {
         Equipos = []
+        Equipos.append(equipoSeleccionado)
         let NumConcacaf = Int.random(in: 1...4)
         let NumAfrica = Int.random(in: 1...4)
         let NumAsia = Int.random(in: 1...4)
         let NumConmebol = Int.random(in: 1...4)
         var NumEuropeos = Int.random(in: 1...16)
         var NumGrupo:Int, S = 1, Agregado = false, Europa = 0
-        while S <= 4 {
+        if Europeos.contains(equipoSeleccionado){
+            Europa = 1
+        }
+        while S <= 3 {
             NumGrupo = Int.random(in: 1...5)
             switch NumGrupo{
                 case 1:

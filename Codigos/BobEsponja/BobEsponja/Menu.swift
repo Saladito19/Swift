@@ -75,8 +75,8 @@ class Orden {
         OR = OR + "\n"
         OR = OR + "\nSubtotal: $\(SUBTOTAL)"
         if(Propina > 0){
-            PRO = Double(Propina/100) * Double(SUBTOTAL)
-            OR = OR + "\nPropina: \(Propina)% $\(PRO)"
+            PRO = Double(Propina * SUBTOTAL)/100
+            OR = OR + "\nPropina: \(Propina)% $\((PRO * 100).rounded() / 100)"
         }
         TOTAL = Double(SUBTOTAL)
         OR = OR + "\nTotal a pagar: $\(TOTAL+PRO)"

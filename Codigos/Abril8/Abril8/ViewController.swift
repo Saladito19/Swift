@@ -60,6 +60,7 @@ class ViewController: UIViewController {
     
     
     @IBAction func SeleccionarSemestre(_ sender: UISlider) {
+
         let semestre = Int(sender.value)
         lblSemestre.text = String(semestre)
         print("Semestre: \(semestre),Valor Minimo: \(sender.minimumValue), Valor Maximo: \(sender.maximumValue)")

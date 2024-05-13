@@ -9,21 +9,27 @@
 /* Begin PBXBuildFile section */
 		094040C42BF2570A008D9C44 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 094040C32BF2570A008D9C44 /* AppDelegate.swift */; };
 		094040C62BF2570A008D9C44 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 094040C52BF2570A008D9C44 /* SceneDelegate.swift */; };
-		094040C82BF2570A008D9C44 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 094040C72BF2570A008D9C44 /* ViewController.swift */; };
+		094040C82BF2570A008D9C44 /* VistaAlumnos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 094040C72BF2570A008D9C44 /* VistaAlumnos.swift */; };
 		094040CB2BF2570A008D9C44 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 094040C92BF2570A008D9C44 /* Main.storyboard */; };
 		094040CD2BF2570B008D9C44 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 094040CC2BF2570B008D9C44 /* Assets.xcassets */; };
 		094040D02BF2570B008D9C44 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 094040CE2BF2570B008D9C44 /* LaunchScreen.storyboard */; };
+		094040D82BF257E2008D9C44 /* Alumno.swift in Sources */ = {isa = PBXBuildFile; fileRef = 094040D72BF257E2008D9C44 /* Alumno.swift */; };
+		094040DA2BF25991008D9C44 /* AlumnoDetalle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 094040D92BF25991008D9C44 /* AlumnoDetalle.swift */; };
+		094040DC2BF25D60008D9C44 /* CeldaAlumno.swift in Sources */ = {isa = PBXBuildFile; fileRef = 094040DB2BF25D60008D9C44 /* CeldaAlumno.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		094040C02BF25709008D9C44 /* Mayo13.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mayo13.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		094040C32BF2570A008D9C44 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		094040C52BF2570A008D9C44 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		094040C72BF2570A008D9C44 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		094040C72BF2570A008D9C44 /* VistaAlumnos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VistaAlumnos.swift; sourceTree = "<group>"; };
 		094040CA2BF2570A008D9C44 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		094040CC2BF2570B008D9C44 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		094040CF2BF2570B008D9C44 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		094040D12BF2570B008D9C44 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		094040D72BF257E2008D9C44 /* Alumno.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alumno.swift; sourceTree = "<group>"; };
+		094040D92BF25991008D9C44 /* AlumnoDetalle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlumnoDetalle.swift; sourceTree = "<group>"; };
+		094040DB2BF25D60008D9C44 /* CeldaAlumno.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CeldaAlumno.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,13 +62,16 @@
 		094040C22BF25709008D9C44 /* Mayo13 */ = {
 			isa = PBXGroup;
 			children = (
+				094040D72BF257E2008D9C44 /* Alumno.swift */,
 				094040C32BF2570A008D9C44 /* AppDelegate.swift */,
 				094040C52BF2570A008D9C44 /* SceneDelegate.swift */,
-				094040C72BF2570A008D9C44 /* ViewController.swift */,
+				094040C72BF2570A008D9C44 /* VistaAlumnos.swift */,
 				094040C92BF2570A008D9C44 /* Main.storyboard */,
 				094040CC2BF2570B008D9C44 /* Assets.xcassets */,
 				094040CE2BF2570B008D9C44 /* LaunchScreen.storyboard */,
 				094040D12BF2570B008D9C44 /* Info.plist */,
+				094040D92BF25991008D9C44 /* AlumnoDetalle.swift */,
+				094040DB2BF25D60008D9C44 /* CeldaAlumno.swift */,
 			);
 			path = Mayo13;
 			sourceTree = "<group>";
@@ -138,9 +147,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				094040C82BF2570A008D9C44 /* ViewController.swift in Sources */,
+				094040C82BF2570A008D9C44 /* VistaAlumnos.swift in Sources */,
+				094040DC2BF25D60008D9C44 /* CeldaAlumno.swift in Sources */,
+				094040DA2BF25991008D9C44 /* AlumnoDetalle.swift in Sources */,
 				094040C42BF2570A008D9C44 /* AppDelegate.swift in Sources */,
 				094040C62BF2570A008D9C44 /* SceneDelegate.swift in Sources */,
+				094040D82BF257E2008D9C44 /* Alumno.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -7,13 +7,13 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class VistaAlumnos: UIViewController {
 
+    @IBOutlet weak var tablaAlumnos: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
     }
-
-
 }
 

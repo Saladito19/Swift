@@ -21,7 +21,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="150" id="Pew-Np-jfL" customClass="CeldaAlumno" customModule="Mayo13" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="celdaAlumno" rowHeight="150" id="Pew-Np-jfL" customClass="CeldaAlumno" customModule="Mayo13" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="50" width="343" height="150"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Pew-Np-jfL" id="ZjQ-gh-XQv">
@@ -56,6 +56,13 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LLI-ht-W47">
+                                <rect key="frame" x="166" y="573" width="42" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -63,11 +70,12 @@
                     <navigationItem key="navigationItem" id="R1x-8X-Qax"/>
                     <connections>
                         <outlet property="tablaAlumnos" destination="tQr-8S-tBN" id="56y-ae-ol1"/>
+                        <segue destination="gfx-VI-mLO" kind="show" identifier="seleccionarAlumno" id="scm-fQ-l5U"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="900" y="-27.436281859070466"/>
+            <point key="canvasLocation" x="871" y="-27"/>
         </scene>
         <!--Alumno Detalle-->
         <scene sceneID="nDI-wh-1G8">
@@ -106,6 +114,7 @@
                         <viewLayoutGuide key="safeArea" id="6OR-a1-ekB"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <navigationItem key="navigationItem" id="7hK-Vb-o7o"/>
                     <connections>
                         <outlet property="imgFoto" destination="Z12-8j-o2Y" id="enT-83-NoX"/>
                         <outlet property="lblNombre" destination="Sf9-H7-r2B" id="QKb-zk-gaq"/>

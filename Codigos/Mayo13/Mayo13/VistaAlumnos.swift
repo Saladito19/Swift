@@ -16,6 +16,7 @@ class VistaAlumnos: UIViewController, UITableViewDelegate, UITableViewDataSource
         super.viewDidLoad()
         tablaAlumnos.dataSource = self
         tablaAlumnos.delegate = self
+        rellenarArregloAlumnos()
     }
     
     //Total de Celdas

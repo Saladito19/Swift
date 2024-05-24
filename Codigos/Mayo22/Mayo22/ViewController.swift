@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SafariServices
 
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
@@ -30,13 +31,28 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         let celda = tableView.dequeueReusableCell(withIdentifier: "celdaNoticia") as! celdaNoticia
         
         celda.lblTitulo.text = articulo.title
-        
+        if let urlImagen = URL(string: articulo.urlToImage ?? ""){
+            let dataTask = URLSession.shared.dataTask(with: urlImagen){data,response,error in
+                guard let imagenData = data else {return}
+                DispatchQueue.main.async {
+                    celda.imgPortada.image = UIImage(data: imagenData)
+                }
+            }
+            dataTask.resume()
+        }
         
         return celda
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 150
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: false)
+        let articulo = listadoNoticias[indexPath.row]
+        let vistaSafari = SFSafariViewController(url: URL(string: articulo.url ?? "")!)
+        present(vistaSafari,animated:true)
     }
      
     func fetchNoticias(){

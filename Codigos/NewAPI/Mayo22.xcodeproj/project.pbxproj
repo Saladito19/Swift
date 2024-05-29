@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0937ACA82C07CA51009D86FF /* noticiaCompleta.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0937ACA72C07CA51009D86FF /* noticiaCompleta.swift */; };
 		099410082BFE339B00D80B88 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 099410072BFE339B00D80B88 /* AppDelegate.swift */; };
 		0994100A2BFE339B00D80B88 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 099410092BFE339B00D80B88 /* SceneDelegate.swift */; };
 		0994100C2BFE339B00D80B88 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0994100B2BFE339B00D80B88 /* ViewController.swift */; };
@@ -18,6 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0937ACA72C07CA51009D86FF /* noticiaCompleta.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = noticiaCompleta.swift; sourceTree = "<group>"; };
 		099410042BFE339B00D80B88 /* Mayo22.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mayo22.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		099410072BFE339B00D80B88 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		099410092BFE339B00D80B88 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -69,6 +71,7 @@
 				099410122BFE339D00D80B88 /* LaunchScreen.storyboard */,
 				099410152BFE339D00D80B88 /* Info.plist */,
 				0994101F2BFE3AD400D80B88 /* ModeloNoticias.swift */,
+				0937ACA72C07CA51009D86FF /* noticiaCompleta.swift */,
 			);
 			path = Mayo22;
 			sourceTree = "<group>";
@@ -144,6 +147,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0937ACA82C07CA51009D86FF /* noticiaCompleta.swift in Sources */,
 				0994100C2BFE339B00D80B88 /* ViewController.swift in Sources */,
 				0994101E2BFE3A1B00D80B88 /* celdaNoticia.swift in Sources */,
 				099410082BFE339B00D80B88 /* AppDelegate.swift in Sources */,

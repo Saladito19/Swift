@@ -44,30 +44,44 @@
                                         <connections>
                                             <outlet property="imgPortada" destination="58L-fe-H8q" id="wnD-VF-Vkc"/>
                                             <outlet property="lblTitulo" destination="ORZ-b6-nR3" id="p1g-Cb-nik"/>
-                                            <segue destination="TE0-nb-Jsm" kind="show" identifier="" id="dDK-SZ-btB"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
                             <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="I6l-Nk-hfu">
-                                <rect key="frame" x="0.0" y="58" width="375" height="181"/>
+                                <rect key="frame" x="0.0" y="58" width="375" height="116"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             </pickerView>
+                            <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="bXH-hi-NAZ">
+                                <rect key="frame" x="16" y="182" width="343" height="40"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <date key="minimumDate" timeIntervalSinceReferenceDate="725785200">
+                                    <!--2024-01-01 07:00:00 +0000-->
+                                </date>
+                                <connections>
+                                    <action selector="fechaCambio:" destination="BYZ-38-t0r" eventType="valueChanged" id="t5J-aB-8tf"/>
+                                </connections>
+                            </datePicker>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="giK-Hg-ena">
                         <barButtonItem key="leftBarButtonItem" style="plain" id="rwD-Ke-bUz">
-                            <switch key="customView" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" id="TUF-dj-T0v">
+                            <switch key="customView" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="TUF-dj-T0v">
                                 <rect key="frame" x="16" y="6.5" width="51" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="Idioma:" destination="BYZ-38-t0r" eventType="valueChanged" id="ske-zO-KlO"/>
+                                </connections>
                             </switch>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="dpFecha" destination="bXH-hi-NAZ" id="dpW-2e-2Jf"/>
                         <outlet property="pkvTemas" destination="I6l-Nk-hfu" id="DQr-Mv-C7z"/>
                         <outlet property="tvNoticias" destination="Yxu-og-KAx" id="qsY-PZ-mTa"/>
+                        <segue destination="TE0-nb-Jsm" kind="show" identifier="noticiaSeleccionada" id="Q9L-PR-9Cj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -77,18 +91,52 @@
         <!--NoticiaCompleta-->
         <scene sceneID="CCD-WT-IuB">
             <objects>
-                <viewController title="NoticiaCompleta" id="TE0-nb-Jsm" sceneMemberID="viewController">
+                <viewController title="NoticiaCompleta" id="TE0-nb-Jsm" customClass="noticiaCompleta" customModule="Mayo22" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="LNg-hd-EX0">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ilu-mH-ghv">
+                                <rect key="frame" x="16" y="180" width="343" height="199"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5TR-GG-Ai1">
+                                <rect key="frame" x="16" y="387" width="343" height="163"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LgJ-wY-o5i">
+                                <rect key="frame" x="16" y="577" width="343" height="70"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="tinted" title="Nota completa"/>
+                                <connections>
+                                    <action selector="btnSafari:" destination="TE0-nb-Jsm" eventType="touchUpInside" id="i6m-xN-aHe"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zyf-sj-Kje">
+                                <rect key="frame" x="16" y="55" width="343" height="117"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <color key="textColor" systemColor="tintColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="K23-D9-9Ky"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="m8a-Hv-jTQ"/>
+                    <connections>
+                        <outlet property="imgNoticia" destination="ilu-mH-ghv" id="X0f-O5-lhm"/>
+                        <outlet property="lblDescripcion" destination="5TR-GG-Ai1" id="Zxh-2H-JCd"/>
+                        <outlet property="lblTitulo" destination="zyf-sj-Kje" id="KJL-XM-hOy"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="A7q-RK-LXo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1631" y="-27"/>
+            <point key="canvasLocation" x="1629.5999999999999" y="-27.436281859070466"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="oJS-Ju-D0K">
@@ -112,6 +160,9 @@
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="tintColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

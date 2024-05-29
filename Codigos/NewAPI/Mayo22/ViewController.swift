@@ -6,22 +6,49 @@
 //
 
 import UIKit
-import SafariServices
 
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIPickerViewDelegate, UIPickerViewDataSource {
     
-    
+    @IBOutlet weak var dpFecha: UIDatePicker!
     @IBOutlet weak var pkvTemas: UIPickerView!
     @IBOutlet weak var tvNoticias: UITableView!
     var listadoNoticias : [Noticia] = [] //VECTOR VACIO
     let temas = ["","Microsoft","Windows","Apple","Android","Huawei","Xiaomi","Netflix","Hbo","Disney","Tesla"]
     var temaSeleccionado = ""
+    var idiomaSeleccionado = "es"
+    var mesInicial:Date?
+    var mesFinal:Date?
+    var Inicio = ""
+    var Final = ""
     override func viewDidLoad() {
         super.viewDidLoad()
         tvNoticias.delegate = self
         tvNoticias.dataSource = self
         pkvTemas.dataSource = self
         pkvTemas.delegate = self
+        dpFecha.datePickerMode = .date
+    }
+    
+    
+    @IBAction func fechaCambio(_ sender: UIDatePicker) {
+        //Obtener fecha
+        mesInicial = sender.date
+        //Crear calendario
+        var dataComponent = DateComponents()
+        dataComponent.month = 2
+        //sumar dos meses
+        if let sumaDos = Calendar.current.date(byAdding: dataComponent, to: mesInicial!){
+            mesFinal = sumaDos
+        }
+        //Crear formato
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        //Asignar formato
+        Inicio = dateFormatter.string(from: mesInicial!)
+        Final = dateFormatter.string(from: mesFinal!)
+        print("fecha inicial: ",Inicio)
+        print("fecha final: ",Final)
+        fetchNoticias()
     }
     
     //PICKER
@@ -74,17 +101,25 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         return 150
     }
     
+    //Celda seleccionada
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        //Transicion
+        performSegue(withIdentifier: "noticiaSeleccionada", sender: self)
+        //Deseleccionar celda
         tableView.deselectRow(at: indexPath, animated: false)
-        let articulo = listadoNoticias[indexPath.row]
-        let vistaSafari = SFSafariViewController(url: URL(string: articulo.url ?? "")!)
-        present(vistaSafari,animated:true)
+    }
+    
+    //Pasar datos
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let destino = segue.destination as? noticiaCompleta {
+            destino.NoticiaSeleccionada = listadoNoticias[tvNoticias.indexPathForSelectedRow!.row]
+        }
     }
      
     func fetchNoticias(){
         //print("NETWORKING")
         //1.- Crear la URL
-        let cadenaConexion =  "https://newsapi.org/v2/everything?q=\(temaSeleccionado)&sortBy=popularity&pageSize=30&language=es&apiKey=58f032ba00af419dabd2fc17b091c2e9"
+        let cadenaConexion =  "https://newsapi.org/v2/everything?q=\(temaSeleccionado)&from=\(Inicio)&to=\(Final)&sortBy=popularity&language=\(idiomaSeleccionado)&apiKey=58f032ba00af419dabd2fc17b091c2e9"
             
         if let url = URL(string: cadenaConexion){
             //2.- Crear un URL Session (Es quien hara la conexion)
@@ -120,7 +155,17 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             }
             //4.- Empezar la tarea
             task.resume()
+        }
     }
-}
+    
+    @IBAction func Idioma(_ sender: UISwitch) {
+        if sender.isOn{
+            idiomaSeleccionado = "en"
+            fetchNoticias()
+        }else{
+            idiomaSeleccionado = "es"
+            fetchNoticias()
+        }
+    }
 }
 

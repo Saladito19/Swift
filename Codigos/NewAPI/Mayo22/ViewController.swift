@@ -35,7 +35,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         mesInicial = sender.date
         //Crear calendario
         var dataComponent = DateComponents()
-        dataComponent.month = 2
+        dataComponent.month = 1
         //sumar dos meses
         if let sumaDos = Calendar.current.date(byAdding: dataComponent, to: mesInicial!){
             mesFinal = sumaDos
@@ -48,7 +48,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         Final = dateFormatter.string(from: mesFinal!)
         print("fecha inicial: ",Inicio)
         print("fecha final: ",Final)
-        fetchNoticias()
     }
     
     //PICKER

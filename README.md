@@ -1099,6 +1099,7 @@ print("Tipo de vehiculo: Autobus \nPlacas: \(miLimosina.Placas) \nPrecio por dia
 --------------------------------------------------------------
 --------------------------------------------------------------
 REDONDEAR
+import Foundation
 func roundToDecimals(_ number: Double, decimals: Int) -> Double {
     let multiplier = pow(10.0, Double(decimals))
     return (number * multiplier).rounded() / multiplier
@@ -1109,6 +1110,6 @@ let originalNumber = 3.14159
 let roundedTo2Decimals = roundToDecimals(originalNumber, decimals: 2)
 print(roundedTo2Decimals) // Imprime 3.14
 
-let roundedTo3Decimals = roundToDecimals(originalNumber, decimals: 3)
+let roundedTo3Decimals = roundToDecimals(originalNumber, decimals: 3)//Se puede cambiar el 3 por calquier numero
 print(roundedTo3Decimals) // Imprime 3.142
 ```
